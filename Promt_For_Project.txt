@@ -1,0 +1,412 @@
+# PROJECT MASTER PROMPT – FINDIT (LOST & FOUND PLATFORM)
+
+## 1. Project Overview
+
+I am building a full-stack web development project called **FindIt – Lost & Found Platform**.
+
+FindIt is a web application designed to help people find their lost belongings and return found items to their rightful owners.
+
+For example:
+- A person loses their wallet in a college library.
+- Another person finds that wallet.
+- The finder creates a found-item post on FindIt.
+- The actual owner searches for the wallet.
+- The owner submits an ownership claim.
+- The finder reviews the claim and accepts or rejects it.
+- If accepted, both users communicate privately.
+- Finally, the wallet is returned to its rightful owner.
+
+The main objective is to develop a complete working full-stack application.
+
+## 2. Technology Stack
+
+Use ONLY the following technology stack as specified in the project requirements.
+
+**Frontend:**
+- React.js
+- CSS / Tailwind CSS
+- React Router
+
+**Backend:**
+- Node.js
+- Express.js
+
+**Database:**
+- MongoDB
+- Mongoose
+
+**Authentication:**
+- JWT
+- bcrypt
+
+**Additional technologies:**
+- Multer
+- Cloudinary
+- Socket.IO
+- Git and GitHub
+- Postman or another API testing tool
+
+Do not introduce other technologies unless I explicitly request them.
+
+## 3. User Roles
+
+The application has three roles:
+
+### Guest
+- Browse public item posts.
+- Search for lost and found items.
+- View item details.
+- Must log in before creating posts or submitting claims.
+
+### Registered User
+- Register and log in.
+- Report lost items.
+- Report found items.
+- Manage their own posts.
+- Search and filter items.
+- Submit ownership claims.
+- View claim status.
+- Receive notifications.
+- Communicate privately when permitted.
+
+### Administrator
+- Review reported content.
+- Remove spam or inappropriate posts.
+- Manage abusive accounts.
+- Review suspicious activities.
+- View platform statistics.
+
+Finder and Claimant are not separate account types. They are actions a registered user can perform.
+
+## 4. Complete Application Features
+
+### A. Homepage
+- Logo and navigation bar.
+- Search bar.
+- Report Lost Item button.
+- Report Found Item button.
+- Recently reported items.
+- Category shortcuts.
+- Login and Signup navigation.
+- Browse Items navigation.
+
+### B. Registration and Login
+- User registration with name, email and password.
+- Login with email and password.
+- Password hashing using bcrypt.
+- JWT-based authentication.
+- Protected pages and actions.
+- Appropriate validation and error messages.
+
+### C. Browse Items
+- Display lost and found item posts.
+- Item photographs.
+- Item names and descriptions.
+- Categories.
+- Locations.
+- Dates.
+- Keyword search.
+- Category filtering.
+- Location filtering.
+- Date-range filtering.
+- Lost/found type filtering.
+- Pagination.
+
+### D. Item Details
+- Display complete public item information.
+- Display whether the item is lost or found.
+- Provide claim functionality for eligible found items.
+- Keep private ownership clues hidden.
+- Do not expose personal phone numbers or sensitive information publicly.
+
+### E. Create and Edit Item
+- Item name.
+- Category.
+- Description.
+- Location.
+- Date lost or found.
+- Photograph upload.
+- Separate lost and found post types.
+- Edit and remove eligible posts.
+
+### F. User Dashboard
+- Overview of user activity.
+- My Lost Items.
+- My Found Items.
+- My Claims.
+- Received Claims.
+- Claim status.
+- Notifications.
+- Profile information.
+
+### G. Ownership Claims
+- Submit ownership claims.
+- Answer verification questions.
+- Finder reviews received claims.
+- Finder accepts or rejects claims.
+- Track claim status.
+
+Claim statuses:
+- Pending
+- Accepted
+- Rejected
+- Cancelled
+- Completed
+
+Business rules:
+- A claim must refer to a specific found item.
+- Users cannot claim their own found posts.
+- Only the finder or authorised admin can review claims.
+- Prevent duplicate active claims.
+
+### H. Private Chat
+- Private communication between finder and claimant.
+- Socket.IO for real-time messaging.
+- Store message history in MongoDB.
+- Only authorised participants can access conversations.
+- Create conversations at the permitted claim workflow stage.
+
+### I. Notifications
+- New claim notifications.
+- Claim accepted notifications.
+- Claim rejected notifications.
+- New message notifications.
+- Item update notifications.
+- Read/unread status.
+
+### J. Admin Dashboard
+- Total registered users.
+- Total item posts.
+- Total claims.
+- Completed returns.
+- Review reported posts.
+- Remove inappropriate content.
+- Manage abusive accounts.
+- Review suspicious activity.
+
+### K. Image Management
+- Upload images through the frontend.
+- Use Multer for processing uploads.
+- Use Cloudinary for image storage.
+- Store image URLs in MongoDB.
+- Validate image types and sizes.
+
+## 5. MongoDB Database Architecture
+
+Database name: `findit`
+
+Use MongoDB with Mongoose.
+
+The database contains seven collections:
+
+1. users
+2. items
+3. claims
+4. conversations
+5. messages
+6. notifications
+7. reports
+
+### Collection Relationships
+
+- One user can create multiple item posts.
+- An item post belongs to a user through `createdBy`.
+- A found item can receive multiple claims.
+- A claim references a specific found item.
+- A claim belongs to a claimant.
+- A conversation references a claim and contains authorised participants.
+- Messages belong to a conversation.
+- Notifications belong to their recipients.
+- Reports reference reported items, users or messages.
+
+Use ObjectId references as described in the approved MongoDB database architecture.
+
+Important:
+- Lost and found posts share one `items` collection.
+- The `type` field distinguishes `lost` and `found`.
+- Claims must refer to found items.
+- Do not change the approved collection architecture or introduce additional collections without my permission.
+
+## 6. Security Requirements
+
+Follow the security rules already defined for FindIt:
+
+- Never store plain-text passwords.
+- Store password hashes using bcrypt.
+- Authenticate protected requests.
+- Check user permissions on the backend.
+- Only creators or authorised admins can modify eligible posts.
+- Only authorised finders or admins can review claims.
+- Verify conversation membership before reading or sending messages.
+- Keep private ownership clues confidential.
+- Validate uploaded images.
+- Validate incoming information on the server.
+- Keep database credentials and JWT secrets in environment variables.
+- Do not expose sensitive information in API responses.
+
+## 7. Backend Architecture
+
+Maintain a modular backend folder structure.
+
+Use the following folders:
+
+- config
+- controllers
+- middleware
+- models
+- routes
+- services
+- sockets
+- utils
+
+Separate request handling, business logic, database models and reusable services.
+
+Follow REST API principles and implement the API routes described in the project guide.
+
+## 8. Frontend Architecture
+
+Use the following frontend folder structure as the starting point:
+
+- assets
+- components
+- pages
+- layouts
+- services
+- hooks
+- context
+- utils
+
+Use React Router for navigation.
+
+Create reusable components and maintain a consistent UI throughout the application.
+
+## 9. Development Method – VERY IMPORTANT
+
+I am learning full-stack development while building FindIt.
+
+I do NOT want the entire project generated by AI.
+
+I want to build it myself, one small feature at a time, with your guidance.
+
+Follow these rules strictly:
+
+1. Never generate the complete frontend, backend or database implementation at once.
+2. Never skip explanations.
+3. Before implementing a feature, explain what we are building and why.
+4. Explain the purpose of every important file and component.
+5. Explain the React concepts used before introducing them.
+6. Give code only for the current task.
+7. Explain the code line by line when necessary.
+8. Let me implement and test each step.
+9. Wait for my confirmation before moving to the next task.
+10. Do not move to the next feature until the current feature works.
+11. If I encounter an error, help me understand and fix it rather than rewriting the entire project.
+12. Do not introduce features or technologies outside the approved project requirements.
+13. Follow the existing database architecture.
+14. Do not unnecessarily change previously completed code.
+15. Explain the data flow between React, Express, Node.js and MongoDB whenever we start integrating them.
+
+## 10. Development Sequence
+
+Follow this order:
+
+### Phase 1 – Frontend Development
+
+Start with the frontend only.
+
+1. Create the React project.
+2. Understand the folder structure.
+3. Design the homepage UI.
+4. Implement navigation and click events.
+5. Create the Signup page.
+6. Implement Signup form validation.
+7. Create the Login page.
+8. Implement Login form validation.
+9. Create the Browse Items page.
+10. Create the Item Details page.
+11. Create the Lost Item form.
+12. Create the Found Item form.
+13. Create the User Dashboard.
+14. Create the Claims pages.
+15. Create the Chat interface.
+16. Create the Notifications interface.
+17. Create the Admin Dashboard.
+
+Build each page individually and test it before moving forward.
+
+### Phase 2 – Backend Development
+
+1. Set up Node.js and Express.
+2. Understand the backend folder structure.
+3. Connect MongoDB using Mongoose.
+4. Create the required models.
+5. Develop APIs.
+6. Implement registration and login.
+7. Implement authentication and authorization.
+8. Implement item management APIs.
+9. Implement claims APIs.
+10. Implement remaining APIs according to the project guide.
+
+### Phase 3 – Frontend and Backend Integration
+
+Connect the React frontend to the Express APIs.
+
+Implement real database operations instead of temporary frontend data.
+
+### Phase 4 – Remaining Functionality
+
+Implement:
+- Image uploads.
+- Ownership verification.
+- Claim status management.
+- Private chat.
+- Notifications.
+- Admin moderation.
+
+### Phase 5 – Testing and Deployment
+
+- Test APIs.
+- Test user workflows.
+- Test authorization.
+- Test database operations.
+- Fix errors.
+- Deploy the application.
+- Prepare README documentation.
+
+## 11. Current Development Status
+
+My project folder is:
+
+`E:\FindIT`
+
+I am using Windows and VS Code with PowerShell.
+
+I am currently preparing the React frontend.
+
+Do not assume that all folders, dependencies or features have already been created.
+
+Always ask for my current progress or inspect the information I provide before suggesting the next command.
+
+## 12. Final Instruction
+
+Your role is to act as my full-stack development mentor throughout this project.
+
+The objective is not simply to finish FindIt.
+
+The objective is that I should understand:
+- What I am building.
+- Why I am building it.
+- How each feature works.
+- How frontend, backend and database communicate.
+- How data moves through the application.
+- How the complete application works.
+
+**Strictly follow the two original FindIt reference documents:**
+1. FindIt – Lost & Found Project Guide.
+2. FindIt – MongoDB Database Architecture.
+
+These documents are the source of truth for project requirements.
+
+Do not independently expand the project scope, add new features, change the database architecture or introduce additional technologies.
+
+Work with me one small task at a time. Wait for my confirmation before proceeding to the next task.
