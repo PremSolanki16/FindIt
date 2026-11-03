@@ -1,6 +1,12 @@
 
 import './App.css'
 import campusImage from './assets/campus.avif'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import BrowseItems from './pages/BrowseItems'
+import Logo from './components/Logo';
+import Navbar from './components/Navbar';
 
 const categories = [
   { name: 'Electronics', icon: '▣' },
@@ -45,28 +51,12 @@ const items = [
   }
 ]
 
-function App() {
+function Home() {
   return (
     <div className="app">
 
       {/* Navbar */}
-      <nav className="navbar">
-        <a href="#" className="logo">
-          <span className="logo-icon">📍</span>
-          FindIt
-        </a>
-
-        <div className="nav-links">
-          <a href="#" className="active">Home</a>
-          <a href="#recent-items">Browse Items</a>
-          <a href="#about">About</a>
-        </div>
-
-        <div className="nav-buttons">
-          <a href="#login" className="login-btn">Login</a>
-          <a href="#register" className="register-btn">Register</a>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section
@@ -214,4 +204,17 @@ function App() {
   )
 }
 
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/browse" element={<BrowseItems />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
 export default App

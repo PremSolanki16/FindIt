@@ -19,82 +19,6 @@
 
 /* NAVBAR */
 
-.navbar {
-  height: 76px;
-  padding: 0 8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #080D2B;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-  z-index: 10;
-}
-
-.logo {
-  color: var(--white);
-  font-size: 27px;
-  font-weight: 800;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.logo-icon {
-  color: var(--purple-light);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-.nav-links a,
-.footer-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links .active {
-  color: var(--white);
-}
-
-.nav-links .active {
-  border-bottom: 2px solid var(--purple);
-  padding-bottom: 8px;
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 14px;
-}
-
-.login-btn,
-.register-btn {
-  padding: 11px 23px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-}
-
-.login-btn {
-  border: 1px solid rgba(255,255,255,0.4);
-}
-
-.register-btn {
-  background: var(--purple);
-}
-
-.register-btn:hover {
-  background: #7042E9;
-}
 
 /* HERO */
 
@@ -434,28 +358,7 @@
 }
 
 @media (max-width: 650px) {
-  .navbar {
-    height: auto;
-    padding: 18px 5%;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .nav-buttons {
-    gap: 8px;
-  }
-
-  .login-btn,
-  .register-btn {
-    padding: 9px 13px;
-  }
+  
 
   .hero {
     padding: 45px 6% 30px;

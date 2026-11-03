@@ -1,0 +1,231 @@
+
+.register-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 50px 20px;
+  background-image: url('../assets/campus.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Background overlay */
+.register-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 13, 43, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Back to home */
+.register-back-home {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 2;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.register-back-home:hover {
+  color: var(--purple-light);
+}
+
+/* Registration card */
+.register-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  padding: 35px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  background: rgba(27, 35, 69, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo */
+.register-logo {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.register-logo span {
+  color: var(--purple-light);
+}
+
+/* Heading */
+.register-card h1 {
+  color: var(--white);
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.register-subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Input groups */
+.register-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.register-input-group label {
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.register-input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9px;
+  outline: none;
+  background: rgba(8, 13, 43, 0.65);
+  color: var(--white);
+  font-size: 14px;
+}
+
+.register-input-group input::placeholder {
+  color: #9299B5;
+}
+
+.register-input-group input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(128, 85, 247, 0.15);
+}
+
+/* Create account button */
+.register-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(128, 85, 247, 0.35);
+}
+
+/* Login link */
+.register-login-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 22px;
+}
+
+.register-login-text a {
+  color: var(--purple-light);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-login-text a:hover {
+  color: var(--white);
+}
+
+/* OTP section */
+.otp-section {
+  text-align: center;
+}
+
+.otp-icon {
+  font-size: 38px;
+  color: var(--purple-light);
+  margin-bottom: 15px;
+}
+
+.otp-section .register-input-group {
+  text-align: left;
+  margin-top: 25px;
+}
+
+.otp-section input {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 8px;
+}
+
+.resend-otp {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 22px;
+}
+
+.resend-otp button {
+  border: none;
+  background: none;
+  color: var(--purple-light);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.resend-otp button:hover {
+  color: var(--white);
+}
+
+.back-to-register {
+  margin-top: 18px;
+  border: none;
+  background: none;
+  color: var(--purple-light);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.back-to-register:hover {
+  color: var(--white);
+}
+
+/* Footer */
+.register-footer {
+  text-align: center;
+  color: #9299B5;
+  font-size: 12px;
+  margin-top: 24px;
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+  .register-card {
+    padding: 30px 22px;
+  }
+
+  .register-back-home {
+    top: 18px;
+    left: 20px;
+  }
+
+  .register-card h1 {
+    font-size: 24px;
+  }
+}

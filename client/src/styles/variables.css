@@ -1,0 +1,13 @@
+:root {
+  --bg: #080D2B;
+  --bg-secondary: #111936;
+  --card: #1B2345;
+
+  --purple: #8055F7;
+  --purple-light: #A78BFA;
+
+  --white: #FFFFFF;
+  --text-secondary: #C5C9DF;
+
+  --border: rgba(255, 255, 255, 0.12);
+}

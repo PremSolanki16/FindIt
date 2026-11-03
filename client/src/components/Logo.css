@@ -1,0 +1,13 @@
+
+.findit-logo {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+
+.findit-logo span {
+  color: var(--purple-light);
+}
